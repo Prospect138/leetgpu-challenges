@@ -29,11 +29,6 @@ logger = logging.getLogger(__name__)
 def find_solution_file(challenge_dir: Path, language: str) -> tuple[str, str]:
     language_to_extension = {
         "cuda": "cu",
-        "mojo": "mojo",
-        "pytorch": "py",
-        "cute": "py",
-        "triton": "py",
-        "jax": "py",
     }
     solution_file = challenge_dir / "solution" / f"solution.{language_to_extension[language]}"
     if not solution_file.exists():
@@ -88,9 +83,6 @@ def submit_solution(
 
 
 def main() -> int:
-    if not LEETGPU_API_KEY:
-        logger.error("LEETGPU_API_KEY environment variable is required")
-        return 1
 
     parser = argparse.ArgumentParser(description="Submit a solution via WebSocket API.")
     parser.add_argument("challenge_path", type=Path, help="Path to the challenge directory")

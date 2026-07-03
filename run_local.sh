@@ -1,0 +1,1 @@
+python scripts/run_local.py challenges/easy/3_matrix_transpose
