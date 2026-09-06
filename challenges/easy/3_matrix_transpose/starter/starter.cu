@@ -27,7 +27,6 @@ __global__ void matrix_transpose_kernel(const float* input, float* output, int r
     }
     __syncthreads();
     if (col < cols && row < rows)
-        //output[rows * col + row] = in[threadIdx.y][threadIdx.x];
         output[rows * col + row] = input[cols * row + col];
 }
 
